@@ -1,0 +1,8 @@
+{
+  "chainId": 56,
+  "factory": "0x888A32aCE40DFBc99A00c1Dcbaf3515291845aeE",
+  "hook": "0xa8E32E5Bc1d3Ce8aFe6bf3ef2069F1Fc7171c061",
+  "router": "0x119dCa55DCbB37998E9bA0845196acc0FFf2FAc2",
+  "suanBuyBurn": "0xF611041e441CD2037d415cB368d8cB45F31E134A",
+  "startBlock": 130285166
+}
