@@ -4,5 +4,12 @@
   "hook": "0xa8E32E5Bc1d3Ce8aFe6bf3ef2069F1Fc7171c061",
   "router": "0x119dCa55DCbB37998E9bA0845196acc0FFf2FAc2",
   "suanBuyBurn": "0xF611041e441CD2037d415cB368d8cB45F31E134A",
-  "startBlock": 130285166
+  "startBlock": 130285166,
+  "stock": {
+    "factory": "0x55e1c1914D5e11a37Cd10deDF327E56F04ba979C",
+    "hook": "0x6ddE8C213f0fA67cDB9546bB0de5ef595185c196",
+    "router": "0xCFA7D82BfB4Ed21aDaCFC36287b7031264ec9314",
+    "feeSink": "0xE9529df8577b37b6Fb6532A61343cAe2925Cb5f2",
+    "startBlock": 130448475
+  }
 }

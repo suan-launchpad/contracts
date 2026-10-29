@@ -24,7 +24,22 @@ Platform fees: 100% buy back and burn $SUAN, through `SuanBuyBurn`, which has no
 | AgentRouter | [`0x119dCa55DCbB37998E9bA0845196acc0FFf2FAc2`](https://bscscan.com/address/0x119dCa55DCbB37998E9bA0845196acc0FFf2FAc2#code) |
 | SuanBuyBurn | [`0xF611041e441CD2037d415cB368d8cB45F31E134A`](https://bscscan.com/address/0xF611041e441CD2037d415cB368d8cB45F31E134A#code) |
 
-All four are verified on BscScan. Only trust addresses published on launch.suan.bid and the official X account
+### Stock memes (launches paired with a bStock)
+
+| Contract | Address |
+|---|---|
+| StockLaunchFactory | [`0x55e1c1914D5e11a37Cd10deDF327E56F04ba979C`](https://bscscan.com/address/0x55e1c1914D5e11a37Cd10deDF327E56F04ba979C#code) |
+| StockCurveHook | [`0x6ddE8C213f0fA67cDB9546bB0de5ef595185c196`](https://bscscan.com/address/0x6ddE8C213f0fA67cDB9546bB0de5ef595185c196#code) |
+| StockRouter | [`0xCFA7D82BfB4Ed21aDaCFC36287b7031264ec9314`](https://bscscan.com/address/0xCFA7D82BfB4Ed21aDaCFC36287b7031264ec9314#code) |
+| StockFeeSink | [`0xE9529df8577b37b6Fb6532A61343cAe2925Cb5f2`](https://bscscan.com/address/0xE9529df8577b37b6Fb6532A61343cAe2925Cb5f2#code) |
+| StockTokenDeployer | [`0x1247FdBC154309e34B6d2edf45B7bC79511d2cA9`](https://bscscan.com/address/0x1247FdBC154309e34B6d2edf45B7bC79511d2cA9#code) |
+
+A stock meme trades against a bStock (a tokenized US share on BSC) instead of BNB, with the same .ai rules. Every fee
+is taken in the bStock: the creator's 0.5% and holder rewards are paid in the bStock; the platform's 0.5% goes to
+`StockFeeSink`, which converts it to BNB on PancakeSwap V3 and sends it to `SuanBuyBurn` (fixed router, no
+withdrawal). First allowed bases: NVDAB, SPCXB, BNCB, TSLAB, QQQB, SKHYB, AAPLB, CRCLB.
+
+All contracts above are verified on BscScan. Only trust addresses published on launch.suan.bid and the official X account
 [@SUANdotBID](https://x.com/SUANdotBID).
 
 ## Layout
@@ -37,6 +52,7 @@ All four are verified on BscScan. Only trust addresses published on launch.suan.
 | `src/HolderRewards.sol`, `src/AgentRouter.sol` | Holder rewards, buy/sell router |
 | `src/SuanBuyBurn.sol` | Receives platform fees and buys and burns $SUAN through the Flap Portal |
 | `script/Deploy.s.sol` | Deployment |
+| `src/Stock*.sol`, `script/DeployStock.s.sol`, `script/StockBase.s.sol` | Stock memes: hook, factory, router, fee sink, token; deployment; allowlist a bStock |
 
 ## Build and test
 
