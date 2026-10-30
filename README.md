@@ -42,6 +42,27 @@ withdrawal). First allowed bases: NVDAB, SPCXB, BNCB, TSLAB, QQQB, SKHYB, AAPLB,
 All contracts above are verified on BscScan. Only trust addresses published on launch.suan.bid and the official X account
 [@SUANdotBID](https://x.com/SUANdotBID).
 
+### Fair Mint (.ai Agent ID only)
+
+Anyone creates a mint that only `.ai` Agent ID holders can join. Funds stay in the sale contract: if the target is met
+the sale opens a PancakeSwap V2 pool at the last share's price and sends the LP to the dead address; if not, everyone
+takes back exactly what they paid. Rules are fixed at creation; sales have no owner and no withdrawal.
+
+| Contract | Address |
+|---|---|
+| FairMintFactory | [`0xb9b7d9384F22512C7A5E657fF9FF804D89Cf3b64`](https://bscscan.com/address/0xb9b7d9384F22512C7A5E657fF9FF804D89Cf3b64#code) |
+| FairMintSale (implementation; each sale is a clone) | [`0xC13c13f0510E127927936f3E9FDa71B3B406a898`](https://bscscan.com/address/0xC13c13f0510E127927936f3E9FDa71B3B406a898#code) |
+| SuanV2Router | [`0x9FD3887A0e0910f905Ad6F2E637cB514d5f9Eb7f`](https://bscscan.com/address/0x9FD3887A0e0910f905Ad6F2E637cB514d5f9Eb7f#code) |
+| FairMintTaxSink | [`0xD2DAf18d6868e612344986Fc65F10be5915606E2`](https://bscscan.com/address/0xD2DAf18d6868e612344986Fc65F10be5915606E2#code) |
+
+| Fee | Rate | Goes to |
+|---|---|---|
+| Creation fee | 0.01 BNB | buys back $SUAN |
+| Creator bond | 0.05 BNB | returned on launch; buys back $SUAN if the target is missed |
+| Launch fee | 2% of the BNB raised (none on a failed sale) | buys back $SUAN |
+| Router fee | 1% of trades through SuanV2Router | buys back $SUAN |
+| Token tax (optional) | 0–5% buy / sell, lower .ai rates allowed, fixed at creation | 10% buys back $SUAN; the rest is burned or paid to the creator as set |
+
 ## Layout
 
 | Path | Contents |
@@ -53,6 +74,7 @@ All contracts above are verified on BscScan. Only trust addresses published on l
 | `src/SuanBuyBurn.sol` | Receives platform fees and buys and burns $SUAN through the Flap Portal |
 | `script/Deploy.s.sol` | Deployment |
 | `src/Stock*.sol`, `script/DeployStock.s.sol`, `script/StockBase.s.sol` | Stock memes: hook, factory, router, fee sink, token; deployment; allowlist a bStock |
+| `src/fairmint/`, `script/fairmint/DeployFairMint.s.sol`, `test/fairmint/` | Fair Mint: factory, sale, token, router, tax sink; deployment; fork tests |
 
 ## Build and test
 

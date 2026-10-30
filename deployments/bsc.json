@@ -11,5 +11,11 @@
     "router": "0xCFA7D82BfB4Ed21aDaCFC36287b7031264ec9314",
     "feeSink": "0xE9529df8577b37b6Fb6532A61343cAe2925Cb5f2",
     "startBlock": 130448475
+  },
+  "fairmint": {
+    "factory": "0xb9b7d9384F22512C7A5E657fF9FF804D89Cf3b64",
+    "router": "0x9FD3887A0e0910f905Ad6F2E637cB514d5f9Eb7f",
+    "taxSink": "0xD2DAf18d6868e612344986Fc65F10be5915606E2",
+    "startBlock": 130622821
   }
 }
